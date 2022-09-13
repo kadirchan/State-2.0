@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col-6">
+    <div class="row">
+      <div class="form-floating">
+        <input
+          #Address
+          class="form-control"
+          id="floatingInputGrid"
+          placeholder="0"
+          value=""
+        />
+        <label for="floatingInputGrid">Citiziens wallet address</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-floating">
+        <input
+          #Diagnose
+          class="form-control"
+          id="floatingInputGrid"
+          placeholder="0"
+          value=""
+        />
+        <label for="floatingInputGrid">Explain Accident</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-floating">
+        <input
+          #Penalty
+          class="form-control"
+          id="floatingInputGrid"
+          placeholder="0"
+          value=""
+        />
+        <label for="floatingInputGrid">Penalty</label>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <div>
+      <button
+        style="margin-left: auto; margin-right: auto"
+        type="button"
+        class="btn btn-primary"
+        (click)="addAccident(Address.value, Diagnose.value, Penalty.value)"
+      >
+        Add Accident
+      </button>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div id="name" class="row">
+  <div>{{ Name }}</div>
+  <div>{{ IDNumber }}</div>
+  <div>{{ Blood }}</div>
+  <div>{{ Country }}</div>
+  <div>{{ Licence }}</div>
+  <div>{{ TrafficPoint }}</div>
+  <div>{{ Birth }}</div>
+</div>
+
+<div id="Status" style="display: none" class="row">
+  <div class="col"></div>
+  <div class="col">
+    <p>{{ Status }}</p>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div id="Pending" style="display: none" class="row">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Waiting...</span>
+    </div>
+  </div>
+</div>
+
+<div id="Extra" style="display: none" class="row">
+  <div class="col"></div>
+  <div class="col">
+    <p>{{ Licence_status }}</p>
+  </div>
+  <div class="col"></div>
+</div>

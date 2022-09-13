@@ -1,0 +1,29 @@
+<h3>New President</h3>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-6">
+    <div class="form-floating">
+      <input
+        #Address
+        class="form-control"
+        id="floatingInputGrid"
+        placeholder="0x"
+        value=""
+      />
+      <label for="floatingInputGrid">Wallet address</label>
+    </div>
+  </div>
+  <div class="col-2">
+    <div>
+      <button
+        style="margin-left: auto; margin-right: auto"
+        type="button"
+        class="btn btn-primary"
+        (click)="transferPresident(Address.value)"
+      >
+        Transfer
+      </button>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>

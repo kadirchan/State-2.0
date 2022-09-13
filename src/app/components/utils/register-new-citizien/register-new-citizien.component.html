@@ -1,0 +1,111 @@
+<div class="row-2"></div>
+<form class="row g-3">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name</label>
+      <input #Name type="text" class="form-control" id="name" maxlength="32" />
+    </div>
+    <div class="col-md-6">
+      <label for="surname" class="form-label">Surname</label>
+      <input
+        #Surname
+        type="text"
+        class="form-control"
+        id="surname"
+        maxlength="32"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="Country" class="form-label">Country</label>
+      <select #Country id="Country" class="form-select">
+        <option selected>Select</option>
+        <option value="Turkey">Turkey</option>
+        <option value="United-States">United-States</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        <option value="Spain">Spain</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="Blood" class="form-label">Blood Group</label>
+      <select #Blood id="Blood" class="form-select">
+        <option selected>Select</option>
+        <option value="0 Rh +">0 Rh +</option>
+        <option value="0 Rh -">0 Rh -</option>
+        <option value="A Rh +">A Rh +</option>
+        <option value="A Rh -">A Rh -</option>
+        <option value="B Rh +">B Rh +</option>
+        <option value="B Rh -">B Rh -</option>
+        <option value="AB Rh +">AB Rh +</option>
+        <option value="AB Rh -">AB Rh -</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <label for="Birth" class="form-label">Birth Date (DD.MM.YYYY)</label>
+      <input
+        #Birth
+        type="text"
+        class="form-control"
+        id="Birth"
+        maxlength="10"
+      />
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <div class="form-check">
+          <input
+            #Licence
+            class="form-check-input"
+            type="checkbox"
+            id="DriverLicence"
+          />
+          <label class="form-check-label" for="DriverLicence">
+            Driver Licence
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-2">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="
+          register(
+            Name.value,
+            Surname.value,
+            Country.value,
+            Blood.value,
+            Licence.checked,
+            Birth.value
+          )
+        "
+      >
+        Register
+      </button>
+    </div>
+    <div class="col"></div>
+  </div>
+</form>
+<div id="Status" style="display: none" class="row">
+  <div class="col"></div>
+  <div class="col">
+    <p>{{ Status }}</p>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div id="Pending" style="display: none" class="row">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Waiting...</span>
+    </div>
+  </div>
+</div>

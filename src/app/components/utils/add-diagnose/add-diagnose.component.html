@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col-6">
+    <div class="row">
+      <div class="form-floating">
+        <input
+          #Address
+          class="form-control"
+          id="floatingInputGrid"
+          placeholder="0x"
+          value=""
+        />
+        <label for="floatingInputGrid">Patient's wallet address</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-floating">
+        <input
+          #Diagnose
+          class="form-control"
+          id="floatingInputGrid"
+          placeholder="0x"
+          value=""
+        />
+        <label for="floatingInputGrid">Diagnose</label>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <div>
+      <button
+        style="margin-left: auto; margin-right: auto"
+        type="button"
+        class="btn btn-primary"
+        (click)="addDiagnose(Address.value, Diagnose.value)"
+      >
+        Add Diagnose
+      </button>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div id="name" class="row">
+  <div class="col">{{ Name }}</div>
+  <div class="col">{{ IDNumber }}</div>
+  <div class="col">
+    <div>{{ Blood }}</div>
+    <div>{{ Birth }}</div>
+  </div>
+</div>
+
+<div id="Status" style="display: none" class="row">
+  <div class="col"></div>
+  <div class="col">
+    <p>{{ Status }}</p>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div id="Pending" style="display: none" class="row">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Waiting...</span>
+    </div>
+  </div>
+</div>

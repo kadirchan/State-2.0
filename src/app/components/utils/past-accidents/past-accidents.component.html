@@ -1,0 +1,37 @@
+<div id="past-accidents-police" style="display: none">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-6">
+      <div class="form-floating">
+        <input
+          #Address
+          class="form-control"
+          id="floatingInputGrid"
+          placeholder="0"
+          value=""
+        />
+        <label for="floatingInputGrid">Citizien's wallet address</label>
+      </div>
+    </div>
+    <div class="col-2">
+      <div>
+        <button
+          style="margin-left: auto; margin-right: auto"
+          type="button"
+          class="btn btn-primary"
+          (click)="PastAccidents_Patient(Address.value)"
+        >
+          List
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="past-diagnonses">
+  <ul>
+    <li *ngFor="let Accident of Accidents">
+      <span>{{ Accident }}</span>
+    </li>
+  </ul>
+</div>
