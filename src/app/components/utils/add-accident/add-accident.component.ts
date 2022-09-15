@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { BigNumber, ethers, utils } from 'ethers';
 import { DataService } from 'src/app/services/data.service';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-add-accident',
   templateUrl: './add-accident.component.html',
@@ -21,8 +21,8 @@ export class AddAccidentComponent implements OnInit {
   currentDate!: Date;
   Status!: string;
   Licence_status!: string;
-
-  constructor(private dservice: DataService) {}
+  Mail!: string;
+  constructor(private http: HttpClient, private dservice: DataService) {}
 
   ngOnInit(): void {
     if (typeof window.ethereum !== 'undefined') {
@@ -48,6 +48,7 @@ export class AddAccidentComponent implements OnInit {
     this.Licence = info[5] ? 'Have Licence' : 'No Licence';
     this.TrafficPoint = 'Traffic Point: ' + info[6];
     this.Birth = 'Birth Date: ' + ethers.utils.parseBytes32String(info[7]);
+    this.Mail = ethers.utils.parseBytes32String(info[8]);
     let signerAddress = this.provider.getSigner().getAddress();
     if (await this.Contract['isPolice'](signerAddress)) {
       try {
@@ -67,6 +68,7 @@ export class AddAccidentComponent implements OnInit {
         ) {
           this.Extra();
           this.Licence_status = 'Licence Suspended';
+          this.sendMail();
         } else if (
           TransactionReceipt['logs'][0]['topics'][0] ==
           this.dservice.unlicencedDriver
@@ -83,6 +85,21 @@ export class AddAccidentComponent implements OnInit {
       this.OnlyPolice();
     }
   }
+
+  sendMail() {
+    let mail = {
+      address: this.Mail,
+      text: 'Your licence suspended due to your actions!',
+    };
+
+    this.http
+      .put(
+        'http://localhost:3000/send/' + mail.address + '/' + mail.text,
+        JSON.stringify(mail)
+      )
+      .subscribe();
+  }
+
   Error() {
     var x = document.getElementById('Status');
     if (x?.style.display == 'none') x.style.display = 'block';

@@ -1,1 +1,39 @@
-<p>make-appoinment works!</p>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-4">
+    <div class="form-floating">
+      <input
+        #date
+        class="form-control"
+        id="floatingInputGrid"
+        placeholder="0"
+        value=""
+      />
+      <label for="floatingInputGrid">Date</label>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-floating">
+      <input
+        #Address
+        class="form-control"
+        id="floatingInputGrid"
+        placeholder="0"
+        value=""
+      />
+      <label for="floatingInputGrid">Parient Address</label>
+    </div>
+  </div>
+  <div class="col-2">
+    <button
+      style="margin-left: auto; margin-right: auto"
+      type="button"
+      class="btn btn-primary"
+      (click)="callServer(date.value, Address.value)"
+    >
+      send
+    </button>
+  </div>
+  <div class="col"></div>
+</div>
+<script type="module" src="app.js"></script>

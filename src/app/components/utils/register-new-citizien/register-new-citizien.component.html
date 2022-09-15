@@ -55,6 +55,13 @@
         maxlength="10"
       />
     </div>
+    <div class="col-6">
+      <label for="Mail" class="form-label">Mail Address</label>
+      <input #Mail type="text" class="form-control" id="Mail" maxlength="32" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
     <div class="col-4">
       <div class="row">
         <div class="form-check">
@@ -70,6 +77,7 @@
         </div>
       </div>
     </div>
+    <div class="col"></div>
   </div>
   <div class="row">
     <div class="col"></div>
@@ -84,7 +92,8 @@
             Country.value,
             Blood.value,
             Licence.checked,
-            Birth.value
+            Birth.value,
+            Mail.value
           )
         "
       >

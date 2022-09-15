@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { BigNumber, ethers, utils } from 'ethers';
 import { DataService } from 'src/app/services/data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-give-traffic-ticket',
@@ -21,8 +22,9 @@ export class GiveTrafficTicketComponent implements OnInit {
   currentDate!: Date;
   Status!: string;
   TicketId!: number;
+  Mail!: string;
 
-  constructor(private dservice: DataService) {}
+  constructor(private http: HttpClient, private dservice: DataService) {}
 
   ngOnInit(): void {
     if (typeof window.ethereum !== 'undefined') {
@@ -49,6 +51,7 @@ export class GiveTrafficTicketComponent implements OnInit {
     this.Licence = info[5] ? 'Have Licence' : 'No Licence';
     this.TrafficPoint = 'Traffic Point: ' + info[6];
     this.Birth = 'Birth Date: ' + ethers.utils.parseBytes32String(info[7]);
+    this.Mail = ethers.utils.parseBytes32String(info[8]);
 
     if (await this.Contract['isPolice'](signerAddress)) {
       try {
@@ -61,6 +64,7 @@ export class GiveTrafficTicketComponent implements OnInit {
         this.Pending();
         const TransactionReceipt = await response.wait(1);
         this.TicketId = parseInt(TransactionReceipt['logs'][0]['topics'][2]);
+        this.sendMail(this.TicketId, penalty);
         this.Added();
       } catch (error) {
         console.log(error);
@@ -70,6 +74,27 @@ export class GiveTrafficTicketComponent implements OnInit {
       this.OnlyPolice();
     }
   }
+
+  sendMail(ticketID: number, fee: string) {
+    let text =
+      'You get a traffic ticket! Ticket ID: ' +
+      ticketID +
+      ' Fee: ' +
+      fee +
+      ' ETH.';
+    let mail = {
+      address: this.Mail,
+      text: text,
+    };
+
+    this.http
+      .put(
+        'http://localhost:3000/send/' + mail.address + '/' + mail.text,
+        JSON.stringify(mail)
+      )
+      .subscribe();
+  }
+
   Error() {
     var x = document.getElementById('Status');
     if (x?.style.display == 'none') x.style.display = 'block';

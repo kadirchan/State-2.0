@@ -39,89 +39,9 @@ export class DataService {
         type: 'error',
       },
       {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'personAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'string',
-            name: 'accident',
-            type: 'string',
-          },
-          {
-            internalType: 'uint8',
-            name: 'penalty',
-            type: 'uint8',
-          },
-        ],
-        name: 'addAccident',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'personAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'string',
-            name: 'diagnose',
-            type: 'string',
-          },
-        ],
-        name: 'addDiagnose',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
         inputs: [],
         name: 'alreadyPayed',
         type: 'error',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'personAddress',
-            type: 'address',
-          },
-        ],
-        name: 'assignAccountant',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'personAddress',
-            type: 'address',
-          },
-        ],
-        name: 'assignDoctor',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'personAddress',
-            type: 'address',
-          },
-        ],
-        name: 'assignPolice',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
       },
       {
         inputs: [],
@@ -137,30 +57,6 @@ export class DataService {
         inputs: [],
         name: 'depositMoney',
         type: 'error',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'personAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'uint256',
-            name: 'penalty',
-            type: 'uint256',
-          },
-        ],
-        name: 'giveTrafficTicket',
-        outputs: [
-          {
-            internalType: 'uint32',
-            name: '',
-            type: 'uint32',
-          },
-        ],
-        stateMutability: 'nonpayable',
-        type: 'function',
       },
       {
         inputs: [],
@@ -196,7 +92,7 @@ export class DataService {
         inputs: [
           {
             internalType: 'uint256',
-            name: '',
+            name: 'remaining',
             type: 'uint256',
           },
         ],
@@ -261,126 +157,10 @@ export class DataService {
         type: 'event',
       },
       {
-        inputs: [],
-        name: 'paySalaries',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'uint32',
-            name: 'ticketID',
-            type: 'uint32',
-          },
-        ],
-        name: 'payTrafficTicket',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'bytes32',
-            name: 'name',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'bytes32',
-            name: 'surname',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'bytes32',
-            name: 'country',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'bytes32',
-            name: 'birthDate',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'bool',
-            name: 'driverLicence',
-            type: 'bool',
-          },
-          {
-            internalType: 'bytes32',
-            name: 'bloodGroup',
-            type: 'bytes32',
-          },
-        ],
-        name: 'registerCitizien',
-        outputs: [
-          {
-            internalType: 'uint32',
-            name: '',
-            type: 'uint32',
-          },
-        ],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
         anonymous: false,
         inputs: [],
         name: 'salariesPaid',
         type: 'event',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'uint256',
-            name: 'salary',
-            type: 'uint256',
-          },
-        ],
-        name: 'setAccountantSalary',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'uint256',
-            name: 'salary',
-            type: 'uint256',
-          },
-        ],
-        name: 'setDoctorSalary',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'uint256',
-            name: 'salary',
-            type: 'uint256',
-          },
-        ],
-        name: 'setPoliceSalary',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'uint256',
-            name: 'salary',
-            type: 'uint256',
-          },
-        ],
-        name: 'setPresidentSalary',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
       },
       {
         anonymous: false,
@@ -394,19 +174,6 @@ export class DataService {
         ],
         name: 'ticketPayed',
         type: 'event',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'newPresident',
-            type: 'address',
-          },
-        ],
-        name: 'transferPresident',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
       },
       {
         anonymous: false,
@@ -432,21 +199,17 @@ export class DataService {
         type: 'fallback',
       },
       {
-        inputs: [
+        inputs: [],
+        name: 'accountantSalary',
+        outputs: [
           {
             internalType: 'uint256',
-            name: 'amount',
+            name: '',
             type: 'uint256',
           },
         ],
-        name: 'withdrawBalance',
-        outputs: [],
-        stateMutability: 'nonpayable',
+        stateMutability: 'view',
         type: 'function',
-      },
-      {
-        stateMutability: 'payable',
-        type: 'receive',
       },
       {
         inputs: [
@@ -468,16 +231,96 @@ export class DataService {
         type: 'function',
       },
       {
-        inputs: [],
-        name: 'accountantSalary',
-        outputs: [
+        inputs: [
           {
-            internalType: 'uint256',
-            name: '',
-            type: 'uint256',
+            internalType: 'address',
+            name: 'personAddress',
+            type: 'address',
+          },
+          {
+            internalType: 'string',
+            name: 'accident',
+            type: 'string',
+          },
+          {
+            internalType: 'uint8',
+            name: 'penalty',
+            type: 'uint8',
           },
         ],
-        stateMutability: 'view',
+        name: 'addAccident',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'personAddress',
+            type: 'address',
+          },
+          {
+            internalType: 'string',
+            name: 'diagnose',
+            type: 'string',
+          },
+        ],
+        name: 'addDiagnose',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'personAddress',
+            type: 'address',
+          },
+        ],
+        name: 'assignAccountant',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'personAddress',
+            type: 'address',
+          },
+        ],
+        name: 'assignDoctor',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'personAddress',
+            type: 'address',
+          },
+        ],
+        name: 'assignPolice',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'bytes32',
+            name: 'newMailAddress',
+            type: 'bytes32',
+          },
+        ],
+        name: 'changeMail',
+        outputs: [],
+        stateMutability: 'nonpayable',
         type: 'function',
       },
       {
@@ -488,6 +331,19 @@ export class DataService {
             internalType: 'uint64',
             name: '',
             type: 'uint64',
+          },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'doctorSalary',
+        outputs: [
+          {
+            internalType: 'uint256',
+            name: '',
+            type: 'uint256',
           },
         ],
         stateMutability: 'view',
@@ -507,19 +363,6 @@ export class DataService {
             internalType: 'address',
             name: '',
             type: 'address',
-          },
-        ],
-        stateMutability: 'view',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'doctorSalary',
-        outputs: [
-          {
-            internalType: 'uint256',
-            name: '',
-            type: 'uint256',
           },
         ],
         stateMutability: 'view',
@@ -640,6 +483,11 @@ export class DataService {
             name: '',
             type: 'bytes32',
           },
+          {
+            internalType: 'bytes32',
+            name: '',
+            type: 'bytes32',
+          },
         ],
         stateMutability: 'view',
         type: 'function',
@@ -694,8 +542,37 @@ export class DataService {
             name: '',
             type: 'bytes32',
           },
+          {
+            internalType: 'bytes32',
+            name: '',
+            type: 'bytes32',
+          },
         ],
         stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'personAddress',
+            type: 'address',
+          },
+          {
+            internalType: 'uint256',
+            name: 'penalty',
+            type: 'uint256',
+          },
+        ],
+        name: 'giveTrafficTicket',
+        outputs: [
+          {
+            internalType: 'uint32',
+            name: '',
+            type: 'uint32',
+          },
+        ],
+        stateMutability: 'nonpayable',
         type: 'function',
       },
       {
@@ -794,6 +671,39 @@ export class DataService {
         type: 'function',
       },
       {
+        inputs: [],
+        name: 'paySalaries',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint32',
+            name: 'ticketID',
+            type: 'uint32',
+          },
+        ],
+        name: 'payTrafficTicket',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'policeSalary',
+        outputs: [
+          {
+            internalType: 'uint256',
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
         inputs: [
           {
             internalType: 'uint256',
@@ -807,19 +717,6 @@ export class DataService {
             internalType: 'address',
             name: '',
             type: 'address',
-          },
-        ],
-        stateMutability: 'view',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'policeSalary',
-        outputs: [
-          {
-            internalType: 'uint256',
-            name: '',
-            type: 'uint256',
           },
         ],
         stateMutability: 'view',
@@ -854,6 +751,107 @@ export class DataService {
       {
         inputs: [
           {
+            internalType: 'bytes32',
+            name: 'name',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'surname',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'country',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'birthDate',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bool',
+            name: 'driverLicence',
+            type: 'bool',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'bloodGroup',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'mailAddress',
+            type: 'bytes32',
+          },
+        ],
+        name: 'registerCitizien',
+        outputs: [
+          {
+            internalType: 'uint32',
+            name: '',
+            type: 'uint32',
+          },
+        ],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint256',
+            name: 'salary',
+            type: 'uint256',
+          },
+        ],
+        name: 'setAccountantSalary',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint256',
+            name: 'salary',
+            type: 'uint256',
+          },
+        ],
+        name: 'setDoctorSalary',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint256',
+            name: 'salary',
+            type: 'uint256',
+          },
+        ],
+        name: 'setPoliceSalary',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint256',
+            name: 'salary',
+            type: 'uint256',
+          },
+        ],
+        name: 'setPresidentSalary',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
             internalType: 'uint32',
             name: '',
             type: 'uint32',
@@ -870,8 +868,38 @@ export class DataService {
         stateMutability: 'view',
         type: 'function',
       },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'newPresident',
+            type: 'address',
+          },
+        ],
+        name: 'transferPresident',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint256',
+            name: 'amount',
+            type: 'uint256',
+          },
+        ],
+        name: 'withdrawBalance',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        stateMutability: 'payable',
+        type: 'receive',
+      },
     ];
-    this.contractAddress = '0xBFE1180F71eDB7917f7b0806EBDbaBe9f19927b7';
+    this.contractAddress = '0xB58E2fADe1182729820401C75bb564cB38dfAA10';
     this.unlicencedDriver =
       '0xa04720252783a487d3d167d92275b3458f48c17d979d67e14c38043d93c990b9';
     this.licenceSuspended =

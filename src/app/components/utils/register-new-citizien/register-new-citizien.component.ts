@@ -30,7 +30,8 @@ export class RegisterNewCitizienComponent implements OnInit {
     country: string,
     bloodGroup: string,
     driverLicence: boolean,
-    birthDate: string
+    birthDate: string,
+    mailAddress: string
   ) {
     let signer = await this.provider.getSigner().getAddress();
     if (!(await this.Contract['isCitizien'](signer))) {
@@ -42,7 +43,8 @@ export class RegisterNewCitizienComponent implements OnInit {
           ethers.utils.formatBytes32String(country),
           ethers.utils.formatBytes32String(birthDate),
           driverLicence,
-          ethers.utils.formatBytes32String(bloodGroup)
+          ethers.utils.formatBytes32String(bloodGroup),
+          ethers.utils.formatBytes32String(mailAddress)
         );
         this.Pending();
         const TransactionReceipt = await response.wait(1);
